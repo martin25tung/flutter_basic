@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/widgets/demo_01.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
           elevation: 10,
           centerTitle: true,
         ),
-        body: CountPage());
+        body: TextDemo());
   }
 }
 
