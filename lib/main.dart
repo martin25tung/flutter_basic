@@ -27,11 +27,38 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("MartinTung"),
-        elevation: 10,
-        centerTitle: true,
-      ),
+        appBar: AppBar(
+          title: Text("MartinTung"),
+          elevation: 10,
+          centerTitle: true,
+        ),
+        body: CountPage());
+  }
+}
+
+class CountPage extends StatefulWidget {
+  const CountPage({Key? key}) : super(key: key);
+
+  @override
+  State<CountPage> createState() => _CountPageState();
+}
+
+class _CountPageState extends State<CountPage> {
+  int count = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text("$count"),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              count++;
+            });
+          },
+          child: Text("點擊"),
+        ),
+      ],
     );
   }
 }
