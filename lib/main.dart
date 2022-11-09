@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           elevation: 10,
           centerTitle: true,
         ),
-        body: TextDemo());
+        body: ButtonDemo());
   }
 }
 
