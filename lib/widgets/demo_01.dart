@@ -75,3 +75,35 @@ class ImageIconDemo extends StatelessWidget {
     );
   }
 }
+
+class CheckDemo extends StatefulWidget {
+  const CheckDemo({Key? key}) : super(key: key);
+
+  @override
+  State<CheckDemo> createState() => _CheckDemoState();
+}
+
+class _CheckDemoState extends State<CheckDemo> {
+  bool _check = false;
+  bool _switch = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Checkbox(
+            value: _check,
+            onChanged: (v) {
+              setState(() {
+                _check = v!;
+              });
+            }),
+        Switch(
+            value: _switch,
+            onChanged: (value) {
+              _switch = value;
+            })
+      ],
+    );
+  }
+}
