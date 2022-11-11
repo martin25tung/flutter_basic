@@ -141,3 +141,20 @@ class ProgressDemo extends StatelessWidget {
     );
   }
 }
+
+class ClickDemo extends StatelessWidget {
+  const ClickDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        print("tag");
+      },
+      onDoubleTap: () {
+        print("double tag");
+      },
+      child: Text("data"),
+    );
+  }
+}
