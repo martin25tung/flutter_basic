@@ -53,3 +53,25 @@ class ButtonDemo extends StatelessWidget {
     );
   }
 }
+
+class ImageIconDemo extends StatelessWidget {
+  const ImageIconDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Icon(Icons.add),
+        IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+        Container(
+          width: double.infinity,
+          child: Image.network(
+            "https://bkimg.cdn.bcebos.com/pic/0df3d7ca7bcb0a46c467b8316c63f6246b60af74?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
+            fit: BoxFit.fill, // 填充
+          ),
+        ),
+        Image.asset("images/image.jpeg"),
+      ],
+    );
+  }
+}
