@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextDemo extends StatelessWidget {
@@ -104,6 +105,39 @@ class _CheckDemoState extends State<CheckDemo> {
               _switch = value;
             })
       ],
+    );
+  }
+}
+
+class ProgressDemo extends StatelessWidget {
+  const ProgressDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          LinearProgressIndicator(
+            value: .5,
+            valueColor: AlwaysStoppedAnimation(Colors.yellow),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Container(
+            height: 100,
+            width: 100,
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(Colors.red),
+            ),
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          CupertinoActivityIndicator()
+        ],
+      ),
     );
   }
 }
