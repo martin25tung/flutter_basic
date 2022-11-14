@@ -18,7 +18,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: {"/": (context) => LoginPage(), "menu": (context) => MenuPage()},
+      routes: {
+        "/": (context) => LoginPage(),
+        // "menu": (context) => MenuPage()
+      },
+      onGenerateRoute: (s) {
+        // 可以在這裡做未登入檢查
+        switch (s.name) {
+          case "menu":
+            return MaterialPageRoute(
+                builder: (context) {
+                  return MenuPage();
+                },
+                settings: s);
+            break;
+          default:
+        }
+      },
     );
   }
 }
