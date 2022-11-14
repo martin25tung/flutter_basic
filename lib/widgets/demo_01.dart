@@ -158,3 +158,100 @@ class ClickDemo extends StatelessWidget {
     );
   }
 }
+
+class InputDemo extends StatefulWidget {
+  const InputDemo({Key? key}) : super(key: key);
+
+  @override
+  State<InputDemo> createState() => _InputDemoState();
+}
+
+class _InputDemoState extends State<InputDemo> {
+  GlobalKey _key = GlobalKey<FormState>();
+  TextEditingController _user = TextEditingController();
+  TextEditingController _pass = TextEditingController();
+  FocusNode _u = FocusNode();
+  FocusNode _p = FocusNode();
+  late FocusScopeNode _focusScopeNode;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _user.dispose();
+    _pass.dispose();
+    _u.dispose();
+    _p.dispose();
+    _focusScopeNode?.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _key,
+      child: Column(
+        children: [
+          TextFormField(
+            autofocus: true,
+            focusNode: _u,
+            controller: _user,
+            decoration: InputDecoration(
+                prefixIcon: Icon(Icons.add),
+                labelText: "帳號",
+                hintText: "請輸入帳號"),
+            validator: (v) {
+              if (v == null || v.isEmpty) {
+                return "帳號必須輸入！";
+              }
+            },
+            // 校驗
+            textInputAction: TextInputAction.next,
+            onFieldSubmitted: (v) {
+              print("object");
+            },
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          TextFormField(
+            focusNode: _p,
+            controller: _user,
+            decoration: InputDecoration(
+                prefixIcon: Icon(Icons.add),
+                labelText: "密碼",
+                hintText: "請輸入密碼"),
+            obscureText: true,
+            // 密碼
+            validator: (v) {
+              if (v == null || v.length < 5) {
+                return "密碼必須輸入且長度大於五";
+              }
+            },
+            // textInputAction: TextInputAction.search, // 搜索
+            textInputAction: TextInputAction.send,
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if (_focusScopeNode == null) {
+                _focusScopeNode = FocusScope.of(context);
+              }
+              _focusScopeNode.requestFocus(_u);
+              _focusScopeNode.unfocus();
+              print((_key.currentState as FormState).validate().toString());
+            },
+            child: Text("提交"),
+            style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(Colors.black)),
+          ),
+        ],
+      ),
+    );
+  }
+}

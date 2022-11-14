@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           elevation: 10,
           centerTitle: true,
         ),
-        body: ClickDemo());
+        body: InputDemo());
   }
 }
 
