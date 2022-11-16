@@ -31,26 +31,55 @@ class LayoutDemo extends StatelessWidget {
         //       height: 100,
         //     )
         //   ],
-        child: Row(
-          // textDirection: TextDirection.rtl, // 左右
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // crossAxisAlignment: CrossAxisAlignment.start, // 上下
+        // child: Row(
+        //   // textDirection: TextDirection.rtl, // 左右
+        //   mainAxisSize: MainAxisSize.max,
+        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //   // crossAxisAlignment: CrossAxisAlignment.start, // 上下
+        //   children: [
+        //     Container(
+        //       color: Colors.red,
+        //       width: 100,
+        //       height: 200,
+        //     ),
+        //     Container(
+        //       color: Colors.green,
+        //       width: 150,
+        //       height: 100,
+        //     ),
+        //     Container(
+        //       color: Colors.yellow,
+        //       width: 100,
+        //       height: 100,
+        //     )
+        //   ],
+        // ),
+        child: Flex(
+          direction: Axis.vertical,
           children: [
-            Container(
-              color: Colors.red,
-              width: 100,
-              height: 200,
+            Expanded(
+              child: Container(
+                color: Colors.red,
+                width: 100,
+                height: 200,
+              ),
+              flex: 1,
             ),
-            Container(
-              color: Colors.green,
-              width: 150,
-              height: 100,
+            Expanded(
+              child: Container(
+                color: Colors.green,
+                width: 100,
+                height: 100,
+              ),
+              flex: 2,
             ),
-            Container(
-              color: Colors.yellow,
-              width: 100,
-              height: 100,
+            Expanded(
+              child: Container(
+                color: Colors.yellow,
+                width: 100,
+                height: 100,
+              ),
+              flex: 1,
             )
           ],
         ),
