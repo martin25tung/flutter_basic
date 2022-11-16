@@ -9,6 +9,7 @@ class LayoutDemo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("佈局練習"),
+        centerTitle: true,
       ),
       body: Container(
         color: Colors.grey,
@@ -30,8 +31,11 @@ class LayoutDemo extends StatelessWidget {
         //       height: 100,
         //     )
         //   ],
-        // ),
         child: Row(
+          // textDirection: TextDirection.rtl, // 左右
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // crossAxisAlignment: CrossAxisAlignment.start, // 上下
           children: [
             Container(
               color: Colors.red,
