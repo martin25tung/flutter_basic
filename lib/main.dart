@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/widgets/demo_01.dart';
+import 'package:flutter_basic/widgets/layout_demo.dart';
 import 'package:flutter_basic/widgets/navigator_demo.dart';
 
 void main() {
@@ -20,8 +21,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/": (context) => LoginPage(),
+        "layout": (context) => LayoutDemo(),
         // "menu": (context) => MenuPage()
       },
+      initialRoute: "layout",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
