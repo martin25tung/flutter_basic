@@ -133,23 +133,31 @@ class StackDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      color: Colors.grey,
-      child: Stack(
-        children: [
-          Container(
-            color: Colors.green,
-            width: 100,
-            height: 100,
+    return Stack(
+      children: [
+        Container(
+          color: Colors.green,
+          width: 100,
+          height: 100,
+        ),
+        Container(
+          color: Colors.red,
+          width: 50,
+          height: 100,
+        ),
+        Positioned(
+          // width: 200,
+          // height: 200,
+          child: Container(
+            color: Colors.yellow,
           ),
-          Container(
-            color: Colors.red,
-            width: 50,
-            height: 100,
-          ),
-        ],
-      ),
+          top: 10,
+          left: 10,
+          right: 10,
+          // left and right 有值，不能設置width
+          bottom: 10, // 當top and bottom 有值，不能設置height
+        )
+      ],
     );
   }
 }
