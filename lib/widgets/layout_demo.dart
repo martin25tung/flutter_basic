@@ -83,7 +83,7 @@ class LayoutDemo extends StatelessWidget {
         //     )
         //   ],
         // ),
-        child: WrapDemo(),
+        child: StackDemo(),
       ),
     );
   }
@@ -124,6 +124,32 @@ class _WrapDemoState extends State<WrapDemo> {
                 color: Colors.blue,
               ))
           .toList(),
+    );
+  }
+}
+
+class StackDemo extends StatelessWidget {
+  const StackDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      color: Colors.grey,
+      child: Stack(
+        children: [
+          Container(
+            color: Colors.green,
+            width: 100,
+            height: 100,
+          ),
+          Container(
+            color: Colors.red,
+            width: 50,
+            height: 100,
+          ),
+        ],
+      ),
     );
   }
 }
