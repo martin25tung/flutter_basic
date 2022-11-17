@@ -12,7 +12,7 @@ class LayoutDemo extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        color: Colors.grey,
+        // color: Colors.grey,
         // child: Column(
         //   children: [
         //     Container(
@@ -169,6 +169,7 @@ class AlignDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(50),
       width: 200,
       height: 200,
       color: Colors.green,
