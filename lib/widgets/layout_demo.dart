@@ -83,7 +83,7 @@ class LayoutDemo extends StatelessWidget {
         //     )
         //   ],
         // ),
-        child: StackDemo(),
+        child: AlignDemo(),
       ),
     );
   }
@@ -159,6 +159,26 @@ class StackDemo extends StatelessWidget {
           // bottom: 10, // 當top and bottom 有值，不能設置height
         )
       ],
+    );
+  }
+}
+
+class AlignDemo extends StatelessWidget {
+  const AlignDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 200,
+      height: 200,
+      color: Colors.green,
+      child: Align(
+        // alignment: Alignment.bottomCenter,
+        alignment: Alignment(-1, 0),
+        child: FlutterLogo(
+          size: 60,
+        ),
+      ),
     );
   }
 }
