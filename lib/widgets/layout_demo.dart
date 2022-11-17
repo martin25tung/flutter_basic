@@ -83,7 +83,7 @@ class LayoutDemo extends StatelessWidget {
         //     )
         //   ],
         // ),
-        child: AlignDemo(),
+        child: EdgeDemo(),
       ),
     );
   }
@@ -180,6 +180,24 @@ class AlignDemo extends StatelessWidget {
           size: 60,
         ),
       ),
+    );
+  }
+}
+
+class EdgeDemo extends StatelessWidget {
+  const EdgeDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 100,
+      color: Colors.red,
+      margin: EdgeInsets.all(8),
+      // 外邊距
+      padding: EdgeInsets.all(20),
+      // 內邊距
+      child: Text("data"),
     );
   }
 }
