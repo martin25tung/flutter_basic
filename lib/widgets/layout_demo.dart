@@ -189,15 +189,33 @@ class EdgeDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    // return Container(
+    //   width: 100,
+    //   height: 100,
+    //   color: Colors.red,
+    //   margin: EdgeInsets.all(8),
+    //   // 外邊距
+    //   padding: EdgeInsets.all(20),
+    //   // 內邊距
+    //   child: Text("data"),
+    // );
+    // return ConstrainedBox(
+    //   constraints: BoxConstraints(
+    //       maxHeight: 100, maxWidth: 100, minHeight: 50, minWidth: 50),
+    //   child: Container(
+    //     width: 10,
+    //     height: 500,
+    //     color: Colors.black,
+    //   ),
+    // ); // 容器
+    return SizedBox(
       width: 100,
       height: 100,
-      color: Colors.red,
-      margin: EdgeInsets.all(8),
-      // 外邊距
-      padding: EdgeInsets.all(20),
-      // 內邊距
-      child: Text("data"),
-    );
+      child: Container(
+        width: 200,
+        height: 10,
+        color: Colors.yellow,
+      ),
+    ); // 容器 如果父容器設置寬高，子容器的寬高將不生效
   }
 }
