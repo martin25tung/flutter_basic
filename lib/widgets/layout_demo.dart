@@ -134,6 +134,8 @@ class StackDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      fit: StackFit.expand,
+      alignment: AlignmentDirectional.center,
       children: [
         Container(
           color: Colors.green,
@@ -143,19 +145,18 @@ class StackDemo extends StatelessWidget {
         Container(
           color: Colors.red,
           width: 50,
-          height: 100,
+          height: 20,
         ),
         Positioned(
-          // width: 200,
-          // height: 200,
+          width: 20,
+          height: 10,
           child: Container(
             color: Colors.yellow,
-          ),
-          top: 10,
-          left: 10,
-          right: 10,
-          // left and right 有值，不能設置width
-          bottom: 10, // 當top and bottom 有值，不能設置height
+          ), // Positioned 包裹的東西，不受外在的參數影響
+          // top: 10,
+          // left: 10,
+          // right: 10, // left and right 有值，不能設置width
+          // bottom: 10, // 當top and bottom 有值，不能設置height
         )
       ],
     );
