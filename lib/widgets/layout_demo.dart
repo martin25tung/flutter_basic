@@ -83,7 +83,7 @@ class LayoutDemo extends StatelessWidget {
         //     )
         //   ],
         // ),
-        child: EdgeDemo(),
+        child: ContainerDemo(),
       ),
     );
   }
@@ -239,6 +239,23 @@ class EdgeDemo extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ContainerDemo extends StatelessWidget {
+  const ContainerDemo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(100),
+      width: 100,
+      height: 100,
+      child: Text("data"),
+      // foregroundDecoration: BoxDecoration(color: Colors.red), // 在前景加顏色，會蓋掉內容
+      decoration: BoxDecoration(color: Colors.red),
+      transform: Matrix4.rotationZ(.5),
     );
   }
 }
