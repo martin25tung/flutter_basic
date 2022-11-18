@@ -208,14 +208,37 @@ class EdgeDemo extends StatelessWidget {
     //     color: Colors.black,
     //   ),
     // ); // 容器
-    return SizedBox(
-      width: 100,
-      height: 100,
-      child: Container(
-        width: 200,
-        height: 10,
-        color: Colors.yellow,
+    // return SizedBox(
+    //   width: 100,
+    //   height: 100,
+    //   child: Container(
+    //     width: 200,
+    //     height: 10,
+    //     color: Colors.yellow,
+    //   ),
+    // ); // 容器 如果父容器設置寬高，子容器的寬高將不生效
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.all(20),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [Colors.red, Colors.green]),
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black45,
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 2)
+            ]),
+        child: Padding(
+          padding: EdgeInsets.only(left: 100, right: 100, top: 20, bottom: 20),
+          child: Text(
+            "註冊",
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+        ),
       ),
-    ); // 容器 如果父容器設置寬高，子容器的寬高將不生效
+    );
   }
 }
