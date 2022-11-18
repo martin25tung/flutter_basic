@@ -29,12 +29,12 @@ class _PageDemoState extends State<PageDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () {
-            print("leading");
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.home),
+        //   onPressed: () {
+        //     print("leading");
+        //   },
+        // ),
         title: Text("TabBar"),
         centerTitle: true,
         actions: [
@@ -59,6 +59,7 @@ class _PageDemoState extends State<PageDemo>
               .toList(),
         ),
       ),
+      drawer: MyDrawer(),
       body: TabBarView(
         children: widget.widgets,
         controller: _controller,
@@ -96,6 +97,29 @@ class IosView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text("iOS"),
+    );
+  }
+}
+
+class MyDrawer extends StatelessWidget {
+  const MyDrawer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: MediaQuery.removePadding(
+        context: context,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 40),
+              child: Text("data"),
+            )
+          ],
+        ),
+        removeTop: true,
+      ),
     );
   }
 }
