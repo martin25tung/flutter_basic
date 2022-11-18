@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PageDemo extends StatefulWidget {
-  const PageDemo({Key? key}) : super(key: key);
+  List<Widget> widgets = [FlutterView(), AndroidView(), IosView()];
 
   @override
   State<PageDemo> createState() => _PageDemoState();
@@ -12,17 +12,10 @@ class _PageDemoState extends State<PageDemo>
     with SingleTickerProviderStateMixin {
   List tabs = ["Flutter", "Android", "iOS"];
   late TabController _controller;
-  int _index = 0;
 
   @override
   void initState() {
-    _controller = new TabController(
-        initialIndex: _index, length: tabs.length, vsync: this);
-    _controller.addListener(() {
-      setState(() {
-        _index = _controller.index;
-      });
-    });
+    _controller = new TabController(length: tabs.length, vsync: this);
     super.initState();
   }
 
@@ -66,7 +59,43 @@ class _PageDemoState extends State<PageDemo>
               .toList(),
         ),
       ),
-      body: Text(_index.toString()),
+      body: TabBarView(
+        children: widget.widgets,
+        controller: _controller,
+      ),
+    );
+  }
+}
+
+class FlutterView extends StatelessWidget {
+  const FlutterView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text("Flutter"),
+    );
+  }
+}
+
+class AndroidView extends StatelessWidget {
+  const AndroidView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text("Android"),
+    );
+  }
+}
+
+class IosView extends StatelessWidget {
+  const IosView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text("iOS"),
     );
   }
 }
