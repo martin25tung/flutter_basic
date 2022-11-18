@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/widgets/demo_01.dart';
+import 'package:flutter_basic/widgets/demo_04.dart';
 import 'package:flutter_basic/widgets/layout_demo.dart';
 import 'package:flutter_basic/widgets/navigator_demo.dart';
 
@@ -17,14 +18,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       routes: {
         "/": (context) => LoginPage(),
         "layout": (context) => LayoutDemo(),
         // "menu": (context) => MenuPage()
+        "page": (context) => PageDemo()
       },
-      initialRoute: "layout",
+      initialRoute: "page",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
