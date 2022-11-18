@@ -8,7 +8,30 @@ class PageDemo extends StatefulWidget {
   State<PageDemo> createState() => _PageDemoState();
 }
 
-class _PageDemoState extends State<PageDemo> {
+class _PageDemoState extends State<PageDemo>
+    with SingleTickerProviderStateMixin {
+  List tabs = ["Flutter", "Android", "iOS"];
+  late TabController _controller;
+  int _index = 0;
+
+  @override
+  void initState() {
+    _controller = new TabController(
+        initialIndex: _index, length: tabs.length, vsync: this);
+    _controller.addListener(() {
+      setState(() {
+        _index = _controller.index;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +57,16 @@ class _PageDemoState extends State<PageDemo> {
               icon: Icon(Icons.add)),
         ],
         elevation: 4.0,
+        bottom: TabBar(
+          controller: _controller,
+          tabs: tabs
+              .map((e) => Tab(
+                    text: e,
+                  ))
+              .toList(),
+        ),
       ),
+      body: Text(_index.toString()),
     );
   }
 }
