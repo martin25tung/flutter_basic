@@ -9,6 +9,16 @@ class AlertDialogDemoState extends StatefulWidget {
 }
 
 class _AlertDialogDemoStateState extends State<AlertDialogDemoState> {
+  List<int> list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    for (var i = 0; i < 20; i++) {
+      list.add(i);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +27,33 @@ class _AlertDialogDemoStateState extends State<AlertDialogDemoState> {
         centerTitle: true,
       ),
       body: Column(
-        children: [ElevatedButton(onPressed: _showAlert, child: Text("對話筐"))],
+        children: [
+          ElevatedButton(onPressed: _showAlert, child: Text("對話筐")),
+          ElevatedButton(onPressed: _showListDialog, child: Text("列表對話筐"))
+        ],
       ),
     );
+  }
+
+  void _showListDialog() async {
+    var result = await showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            // CupertinoAlertDialog ios樣式
+            title: Text("標題"),
+            children: list
+                .map((e) => GestureDetector(
+                      child: Text(e.toString()),
+                      onTap: () {
+                        Navigator.pop(context, e);
+                      },
+                    ))
+                .toList(),
+          );
+        });
+    print(result);
   }
 
   void _showAlert() async {
