@@ -3,6 +3,7 @@ import 'package:flutter_basic/widgets/bottom_navigator.dart';
 import 'package:flutter_basic/widgets/demo_01.dart';
 import 'package:flutter_basic/widgets/demo_04.dart';
 import 'package:flutter_basic/widgets/layout_demo.dart';
+import 'package:flutter_basic/widgets/listview_demo.dart';
 import 'package:flutter_basic/widgets/navigator_demo.dart';
 
 void main() {
@@ -26,9 +27,10 @@ class MyApp extends StatelessWidget {
         "layout": (context) => LayoutDemo(),
         // "menu": (context) => MenuPage()
         "page": (context) => PageDemo(),
-        "navigator": (context) => BottomNavigatorBarDemo()
+        "navigator": (context) => BottomNavigatorBarDemo(),
+        "listview": (context) => ListviewDemo()
       },
-      initialRoute: "navigator",
+      initialRoute: "listview",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
