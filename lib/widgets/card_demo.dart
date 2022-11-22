@@ -50,9 +50,20 @@ class _CardDemoState extends State<CardDemo> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
-        child: ListView.builder(
-          itemBuilder: _itemBuilder,
-          itemCount: list.length,
+        // child: ListView.builder(
+        //   itemBuilder: _itemBuilder,
+        //   itemCount: list.length,
+        // ),
+        child: ListView(
+          children: [
+            ListTile(
+              leading: Icon(Icons.add),
+              title: Text("title"),
+              tileColor: Colors.grey,
+              subtitle: Text("subtitle"),
+              trailing: Icon(Icons.home),
+            )
+          ],
         ),
       ),
     );
