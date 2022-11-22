@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/widgets/alert_dialog_demo.dart';
 import 'package:flutter_basic/widgets/bottom_navigator.dart';
+import 'package:flutter_basic/widgets/card_demo.dart';
 import 'package:flutter_basic/widgets/demo_01.dart';
 import 'package:flutter_basic/widgets/demo_04.dart';
 import 'package:flutter_basic/widgets/grid_view_demo.dart';
@@ -35,8 +36,9 @@ class MyApp extends StatelessWidget {
         "grid": (context) => GridViewDemo(),
         "alert": (context) => AlertDialogDemoState(),
         "table": (context) => TableDemo(),
+        "card": (context) => CardDemo(),
       },
-      initialRoute: "table",
+      initialRoute: "card",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
