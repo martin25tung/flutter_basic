@@ -27,15 +27,26 @@ class _TableDemoState extends State<TableDemo> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Table(
-          border: TableBorder.all(color: Colors.grey),
-          children: list
-              .map((e) =>
-                  TableRow(children: [Text(e["name"]), Text(e["gender"])]))
-              .toList(),
-        ),
-      ),
+          padding: const EdgeInsets.all(10.0),
+          // child: Table(
+          //   border: TableBorder.all(color: Colors.grey),
+          //   children: list
+          //       .map((e) =>
+          //           TableRow(children: [Text(e["name"]), Text(e["gender"])]))
+          //       .toList(),
+          // ),
+          child: DataTable(
+            columns: [
+              DataColumn(label: Text("姓名")),
+              DataColumn(label: Text("性別"))
+            ],
+            rows: list
+                .map((e) => DataRow(cells: [
+                      DataCell(Text(e["name"])),
+                      DataCell(Text(e["gender"]))
+                    ]))
+                .toList(),
+          )),
     );
   }
 }
