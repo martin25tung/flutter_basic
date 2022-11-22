@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic/provider/CountProvider.dart';
 import 'package:flutter_basic/widgets/alert_dialog_demo.dart';
 import 'package:flutter_basic/widgets/bottom_navigator.dart';
 import 'package:flutter_basic/widgets/card_demo.dart';
@@ -10,10 +11,16 @@ import 'package:flutter_basic/widgets/grid_view_demo.dart';
 import 'package:flutter_basic/widgets/layout_demo.dart';
 import 'package:flutter_basic/widgets/listview_demo.dart';
 import 'package:flutter_basic/widgets/navigator_demo.dart';
+import 'package:flutter_basic/widgets/provider_demo.dart';
 import 'package:flutter_basic/widgets/table_demo.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => CountProvider(),
+    child: const MyApp(),
+  ));
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -41,8 +48,10 @@ class MyApp extends StatelessWidget {
         "card": (context) => CardDemo(),
         "demo05": (context) => Demo05(),
         "debug": (context) => DebugDemo(),
+        "provider": (context) => ProviderDemo(),
+        "provider2": (context) => ProviderDemoTwo(),
       },
-      initialRoute: "debug",
+      initialRoute: "provider",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
