@@ -16,8 +16,11 @@ import 'package:flutter_basic/widgets/table_demo.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => CountProvider(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<CountProvider>(
+          create: (context) => CountProvider()),
+    ],
     child: const MyApp(),
   ));
   // runApp(const MyApp());
