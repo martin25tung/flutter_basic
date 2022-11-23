@@ -7,6 +7,7 @@ import 'package:flutter_basic/widgets/debug_demo.dart';
 import 'package:flutter_basic/widgets/demo_01.dart';
 import 'package:flutter_basic/widgets/demo_04.dart';
 import 'package:flutter_basic/widgets/demo_05.dart';
+import 'package:flutter_basic/widgets/dio_demo.dart';
 import 'package:flutter_basic/widgets/grid_view_demo.dart';
 import 'package:flutter_basic/widgets/layout_demo.dart';
 import 'package:flutter_basic/widgets/listview_demo.dart';
@@ -53,8 +54,9 @@ class MyApp extends StatelessWidget {
         "debug": (context) => DebugDemo(),
         "provider": (context) => ProviderDemo(),
         "provider2": (context) => ProviderDemoTwo(),
+        "dio": (context) => DioDemo(),
       },
-      initialRoute: "provider",
+      initialRoute: "dio",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
