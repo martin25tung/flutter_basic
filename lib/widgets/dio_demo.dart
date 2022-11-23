@@ -16,6 +16,7 @@ class _DioDemoState extends State<DioDemo> {
   void initState() {
     super.initState();
     _dio.options.baseUrl = "http://api.td0f7.cn:8083/";
+    _dio.options.connectTimeout = 1000; // 超過時間就跳異常
   }
 
   @override
@@ -28,7 +29,8 @@ class _DioDemoState extends State<DioDemo> {
       body: Column(
         children: [
           ElevatedButton(onPressed: _get, child: Text("Get")),
-          ElevatedButton(onPressed: _post, child: Text("Post"))
+          ElevatedButton(onPressed: _post, child: Text("Post")),
+          ElevatedButton(onPressed: _try, child: Text("異常捕捉"))
         ],
       ),
     );
@@ -54,5 +56,20 @@ class _DioDemoState extends State<DioDemo> {
         },
         options: Options(headers: {"token": "dfasdfa"}));
     print(result);
+  }
+
+  void _try() async {
+    try {
+      print("object");
+      dynamic result = await _dio.get("/dio/dio/tim");
+      print(result);
+      throw "測試異常";
+    } on DioError {
+      print("DioError");
+    } on String {
+      print("String Error");
+    } catch (e) {
+      print(e.runtimeType);
+    }
   }
 }

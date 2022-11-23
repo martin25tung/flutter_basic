@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         "dio": (context) => DioDemo(),
         "mvvm": (context) => MvvmDemoView(),
       },
-      initialRoute: "mvvm",
+      initialRoute: "dio",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
