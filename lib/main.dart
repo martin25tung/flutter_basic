@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/provider/CountProvider.dart';
+import 'package:flutter_basic/view/mvvm_demo_view.dart';
+import 'package:flutter_basic/view_model/mvvm_demo_view_model.dart';
 import 'package:flutter_basic/widgets/alert_dialog_demo.dart';
 import 'package:flutter_basic/widgets/bottom_navigator.dart';
 import 'package:flutter_basic/widgets/card_demo.dart';
@@ -16,11 +18,14 @@ import 'package:flutter_basic/widgets/provider_demo.dart';
 import 'package:flutter_basic/widgets/table_demo.dart';
 import 'package:provider/provider.dart';
 
+// View 調用 ViewModel, ViewModel 通知 Model, Model 發送請求返回給 ViewModel, ViewModel 處理返回結果並刷新 View。
 void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<CountProvider>(
           create: (context) => CountProvider()),
+      ChangeNotifierProvider<MvvmDemoViewModel>(
+          create: (context) => MvvmDemoViewModel()),
     ],
     child: const MyApp(),
   ));
@@ -55,8 +60,9 @@ class MyApp extends StatelessWidget {
         "provider": (context) => ProviderDemo(),
         "provider2": (context) => ProviderDemoTwo(),
         "dio": (context) => DioDemo(),
+        "mvvm": (context) => MvvmDemoView(),
       },
-      initialRoute: "dio",
+      initialRoute: "mvvm",
       onGenerateRoute: (s) {
         // 可以在這裡做未登入檢查
         switch (s.name) {
