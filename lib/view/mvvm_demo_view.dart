@@ -18,15 +18,15 @@ class _MvvmDemoViewState extends State<MvvmDemoView> {
         title: Text("Mvvm設計模式"),
         centerTitle: true,
       ),
-      body: ElevatedButton(
-        child: Column(
-          children: [
-            Text("調用ViewModel"),
-          ],
-        ),
-        onPressed: () async {
-          context.read<MvvmDemoViewModel>().get("id");
-        },
+      body: Column(
+        children: [
+          ElevatedButton(
+            child: Text("調用ViewModel"),
+            onPressed: () async {
+              context.read<MvvmDemoViewModel>().get("id");
+            },
+          ),
+        ],
       ),
     );
   }
